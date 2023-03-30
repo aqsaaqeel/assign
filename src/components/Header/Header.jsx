@@ -16,7 +16,7 @@ export function Header() {
             alt="Logo"
             className="w-12 h-12"
           />
-          <h1 className="ml-2 text-white text-2xl font-bold">Pizza World</h1>
+          <Link to="/"><h1 className="ml-2 text-white text-2xl font-bold">Pizza World</h1></Link>
         </div>
         <div className="flex items-center">
           <button className="ml-4 lg:hidden">
