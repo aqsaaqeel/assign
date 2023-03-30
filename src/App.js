@@ -1,4 +1,3 @@
-// import React, { useState, useEffect } from "react";
 import { Header, Footer } from "./components";
 import {Routes, Route} from "react-router-dom"
 import { ListingPage, CartPage } from "./pages";

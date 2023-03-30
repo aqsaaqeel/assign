@@ -3,7 +3,6 @@ export const filterReducer = (state, action) => {
     case "SET_ALL_PIZZAS":
       return { ...state, allPizzas: action.payload };
     case "SET_PIZZAS":
-      // const { showVeg, minPrice, maxPrice } = state;
       return { ...state, pizzas: action.payload };
     case "SHOW_VEG":
       return {
@@ -35,7 +34,6 @@ export const filterReducer = (state, action) => {
     case "APPLY_FILTER":
       const newPizzas = state.allPizzas.filter(
         (pizza) =>
-          // (showVeg ? pizza.isVeg : true) &&
           pizza.price >= state.minPrice && pizza.price <= state.maxPrice
       );
       return { ...state, pizzas: newPizzas };

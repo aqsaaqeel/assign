@@ -17,7 +17,6 @@ export const ItemCard = ({ pizza }) => {
   };
 
   const handleAddItem = () => {
-    // open customize popup
 
     setShowCustomizePopup(true);
     console.log("hi");
@@ -27,7 +26,6 @@ export const ItemCard = ({ pizza }) => {
     const toppingName = event.target.value;
     const isChecked = event.target.checked;
 
-    // update selected toppings based on checkbox changes
     if (isChecked) {
       setSelectedToppings([...selectedToppings, toppingName]);
     } else {
@@ -41,7 +39,6 @@ export const ItemCard = ({ pizza }) => {
     const sizeName = event.target.value;
     const isChecked = event.target.checked;
 
-    // update selected sizes based on radio button changes
     if (isChecked) {
       setSelectedSizes([sizeName]);
     } else {
@@ -50,25 +47,18 @@ export const ItemCard = ({ pizza }) => {
   };
 
   const handleSave = () => {
-    // get the selected options
     const options = {
       size: selectedSizes[0] || "",
       toppings: selectedToppings || [],
       quantity: quantity || 1,
     };
-
-    // create a new item object
     const newItem = {
       name: pizza.name,
       price: pizza.price,
       img_url: pizza.img_url,
       options: options,
     };
-
-    // add the new item to the cart
     addToCart(newItem);
-
-    // close the popup
     setShowCustomizePopup(false);
   };
 
