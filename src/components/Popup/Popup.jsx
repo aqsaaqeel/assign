@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const Popup = ({ pizza, onClose, onSave }) => {
-  // console.log(pizza);
+  console.log(typeof(onSave));
   // pizza.toppings[0].items.map((addon) => console.log(addon))
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedToppings, setSelectedToppings] = useState([]);

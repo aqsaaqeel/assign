@@ -47,7 +47,7 @@ export const ListingPage = () => {
         <main className="flex-grow">
           <div className="flex flex-wrap justify-center">
             {state.pizzas.map((pizza) => (
-              <ItemCard key={pizza.id} pizza={pizza} />
+              <ItemCard key={pizza.id} pizza={pizza}/>
             ))}
           </div>
         </main>
