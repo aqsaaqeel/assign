@@ -1,8 +1,8 @@
-import { useState,useContext } from "react";
+import { useState, useContext } from "react";
 import { Popup } from "../../components";
 import { CartContext } from "../../context/CartContext";
 export const ItemCard = ({ pizza }) => {
-  const { addToCart} = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
   const [showCustomizePopup, setShowCustomizePopup] = useState(false);
   const [selectedToppings, setSelectedToppings] = useState([]);
@@ -40,7 +40,7 @@ export const ItemCard = ({ pizza }) => {
   const handleSizeChange = (event) => {
     const sizeName = event.target.value;
     const isChecked = event.target.checked;
-  
+
     // update selected sizes based on radio button changes
     if (isChecked) {
       setSelectedSizes([sizeName]);
@@ -48,15 +48,15 @@ export const ItemCard = ({ pizza }) => {
       setSelectedSizes([]);
     }
   };
-  
+
   const handleSave = () => {
     // get the selected options
     const options = {
       size: selectedSizes[0] || "",
       toppings: selectedToppings || [],
-      quantity: quantity|| 1 ,
+      quantity: quantity || 1,
     };
-  
+
     // create a new item object
     const newItem = {
       name: pizza.name,
@@ -64,15 +64,13 @@ export const ItemCard = ({ pizza }) => {
       img_url: pizza.img_url,
       options: options,
     };
-  
+
     // add the new item to the cart
     addToCart(newItem);
-  
+
     // close the popup
     setShowCustomizePopup(false);
   };
-  
-
 
   return (
     <div key={pizza.id} className="m-4 w-1/4">
@@ -123,7 +121,13 @@ export const ItemCard = ({ pizza }) => {
           Add Item
         </button>
         {showCustomizePopup && (
-          <Popup pizza={pizza} onClose={() => setShowCustomizePopup(false)} onSave={handleSave} />
+          <Popup
+            pizza={pizza}
+            onClose={() => setShowCustomizePopup(false)}
+            onSave={handleSave}
+            onToppingChange={handleToppingChange}
+            onSizeChange={handleSizeChange}
+          />
         )}
       </div>
     </div>

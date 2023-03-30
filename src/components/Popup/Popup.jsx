@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Popup = ({ pizza, onClose, onSave }) => {
+export const Popup = ({ pizza, onClose, onSave, onToppingChange, onSizeChange }) => {
   console.log(typeof(onSave));
   // pizza.toppings[0].items.map((addon) => console.log(addon))
   const [selectedSize, setSelectedSize] = useState(null);
