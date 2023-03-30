@@ -1,6 +1,6 @@
 import { getPizzas } from "../../services/PizzaServices";
-import { useEffect,useState, useReducer } from "react";
-import { ItemCard,Sidebar } from "../../components";
+import { useEffect, useState, useReducer } from "react";
+import { ItemCard, Sidebar } from "../../components";
 import { filterReducer } from "./filterReducer";
 
 export const ListingPage = () => {
@@ -31,8 +31,8 @@ export const ListingPage = () => {
   }
 
   return (
-    <div className="main-container flex">
-      <div className="sidebar w-96 border p-10">
+    <div className="main-container flex flex-col md:flex-row">
+      <div className="sidebar md:w-96 border p-10">
         <Sidebar
           state={state}
           dispatch={dispatch}
@@ -43,11 +43,11 @@ export const ListingPage = () => {
           setMaxPrice={setMaxPrice}
         />
       </div>
-      <div className="flex flex-col min-h-screen items-center w-auto p-5">
-        <main className="flex-grow">
+      <div className="flex flex-col min-h-screen items-center w-auto p-5 md:flex-grow">
+        <main className="flex-grow w-full">
           <div className="flex flex-wrap justify-center">
             {state.pizzas.map((pizza) => (
-              <ItemCard key={pizza.id} pizza={pizza}/>
+              <ItemCard key={pizza.id} pizza={pizza} />
             ))}
           </div>
         </main>
