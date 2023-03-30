@@ -3,7 +3,7 @@ export const filterReducer = (state, action) => {
     case "SET_ALL_PIZZAS":
       return { ...state, allPizzas: action.payload };
     case "SET_PIZZAS":
-      const { showVeg, minPrice, maxPrice } = state;
+      // const { showVeg, minPrice, maxPrice } = state;
       return { ...state, pizzas: action.payload };
     case "SHOW_VEG":
       return {
