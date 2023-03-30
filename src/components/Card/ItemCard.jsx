@@ -5,8 +5,8 @@ export const ItemCard = ({ pizza }) => {
   const { addToCart} = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
   const [showCustomizePopup, setShowCustomizePopup] = useState(false);
-  const [selectedToppings] = [];
-  const [selectedSizes] = [];
+  const [selectedToppings, setSelectedToppings] = useState([]);
+  const [selectedSizes, setSelectedSizes] = useState([]);
 
   const handleIncrement = () => {
     setQuantity(quantity + 1);
@@ -23,31 +23,31 @@ export const ItemCard = ({ pizza }) => {
     console.log("hi");
   };
 
-  // const handleToppingChange = (event) => {
-  //   const toppingName = event.target.value;
-  //   const isChecked = event.target.checked;
+  const handleToppingChange = (event) => {
+    const toppingName = event.target.value;
+    const isChecked = event.target.checked;
 
-  //   // update selected toppings based on checkbox changes
-  //   if (isChecked) {
-  //     setSelectedToppings([...selectedToppings, toppingName]);
-  //   } else {
-  //     setSelectedToppings(
-  //       selectedToppings.filter((topping) => topping !== toppingName)
-  //     );
-  //   }
-  // };
+    // update selected toppings based on checkbox changes
+    if (isChecked) {
+      setSelectedToppings([...selectedToppings, toppingName]);
+    } else {
+      setSelectedToppings(
+        selectedToppings.filter((topping) => topping !== toppingName)
+      );
+    }
+  };
 
-  // const handleSizeChange = (event) => {
-  //   const sizeName = event.target.value;
-  //   const isChecked = event.target.checked;
+  const handleSizeChange = (event) => {
+    const sizeName = event.target.value;
+    const isChecked = event.target.checked;
   
-  //   // update selected sizes based on radio button changes
-  //   if (isChecked) {
-  //     setSelectedSizes([sizeName]);
-  //   } else {
-  //     setSelectedSizes([]);
-  //   }
-  // };
+    // update selected sizes based on radio button changes
+    if (isChecked) {
+      setSelectedSizes([sizeName]);
+    } else {
+      setSelectedSizes([]);
+    }
+  };
   
   const handleSave = () => {
     // get the selected options
